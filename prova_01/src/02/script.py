@@ -37,7 +37,7 @@ def ar(random_gen):
     phi = 1 / (A * A.conjugate().subs({z: 1 / z.conjugate()}))
 
     with open('prova_01/tex/02/PSD_AR.tex', mode='w') as tex_file:
-        tex_file.write(sympy.latex(phi))
+        tex_file.write(sympy.latex(phi.n(3)))
 
     plot = sympy.plot(
         phi.subs({z: sympy.E ** (sympy.I * omega)}),
@@ -62,7 +62,7 @@ def arma(random_gen):
     phi = (B * B.conjugate().subs({z: 1 / z.conjugate()})) / (A * A.conjugate().subs({z: 1 / z.conjugate()}))
 
     with open('prova_01/tex/02/PSD_ARMA.tex', mode='w') as tex_file:
-        tex_file.write(sympy.latex(phi))
+        tex_file.write(sympy.latex(phi.n(3)))
 
     plot = sympy.plot(
         phi.subs({z: sympy.E ** (sympy.I * omega)}),
